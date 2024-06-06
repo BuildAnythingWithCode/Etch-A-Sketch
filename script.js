@@ -5,12 +5,12 @@ container.classList.add("container");
 body.insertBefore(container, jsScript);
 
 container.setAttribute("style",
-"display: flex; align-items: center; justify-content: center;");
+"display: flex; align-items: center; justify-content: center; max-width: 400px; flex-wrap: wrap;");
 
-for (let i = 0; i <= 256; i++) {
+for (let i = 0; i <= 255; i++) {
   squareDiv = document.createElement("div");
   squareDiv.classList.add("square");
   container.appendChild(squareDiv);
-  squareDiv.setAttribute("style", "height: 25px; width: 25px;");
+  squareDiv.setAttribute("style", "height: 25px; width: 25px; background-color: grey;");
 };
 
