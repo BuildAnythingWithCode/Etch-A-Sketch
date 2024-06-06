@@ -4,6 +4,12 @@ container = document.createElement("div");
 container.classList.add("container");
 body.insertBefore(container, jsScript);
 
+const button = document.createElement("button");
+body.insertBefore(button, container);
+button.textContent = "Click me";
+
+
+
 container.setAttribute("style",
   "display: flex; align-items: center; justify-content: center; max-width: 400px; flex-wrap: wrap;");
 
