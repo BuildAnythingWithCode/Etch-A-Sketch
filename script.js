@@ -6,3 +6,11 @@ body.insertBefore(container, jsScript);
 squareDiv = document.createElement("div");
 squareDiv.classList.add("square");
 container.appendChild(squareDiv);
+
+container.setAttribute("style",
+"display: flex; align-items: center; justify-content: center;");
+
+squareDiv.setAttribute("style",
+"height: 25px; width: 25px;"
+);
+
