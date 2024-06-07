@@ -6,12 +6,23 @@ body.insertBefore(container, jsScript);
 
 const button = document.createElement("button");
 body.insertBefore(button, container);
-button.textContent = "Click me";
+button.textContent = "Let's Get Set Up";
 button.setAttribute("style", "padding: 10px 25px; border-radius: 5px; border: 2px solid rgb(95, 95, 124); background-color: rgb(197, 197, 219)")
 
+button.addEventListener("click", () => {
+  let numOfSquares = Number(prompt("How many squares would you like per side?"));
+  if (numOfSquares >= 1 && 
+    numOfSquares <= 100 && 
+    typeof numOfSquares === 'number' && 
+    Number.isInteger(numOfSquares) === true) {
+    container.style.width = (numOfSquares * 25) + `px`;
+  } else {
+    alert("You must enter an integer between 1 and 100.");
+  }
+});
 
 container.setAttribute("style",
-  "display: flex; align-items: center; justify-content: center; max-width: 400px; flex-wrap: wrap;");
+  "display: flex; align-items: center; justify-content: center; width: 400px; flex-wrap: wrap;");
 
 for (let i = 0; i <= 255; i++) {
   squareDiv = document.createElement("div");
