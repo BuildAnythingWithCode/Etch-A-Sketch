@@ -4,14 +4,14 @@ const container = document.createElement("div");
 const button = document.createElement("button");
 body.insertBefore(container, jsScript);
 body.insertBefore(button, container);
-button.textContent = "Let's Get Set Up";
-button.setAttribute("style", "padding: 10px 25px; border-radius: 5px; border: 2px solid rgb(95, 95, 124); background-color: rgb(197, 197, 219)")
+button.textContent = "Change Canvas";
+button.setAttribute("style", "padding: 10px 25px; border-radius: 5px; border: 2px solid rgb(95, 95, 124); background-color: rgb(197, 197, 219)");
 
 body.setAttribute("style",
-  "max-width: 100vw; height: 100vh; display: flex; justify-content: space-around; align-items: center; flex-direction: column; overflow: hidden; background-color: rgb(36, 36, 43);");
+  "max-width: 100vw; height: 100vh; display: flex; justify-content: space-around; align-items: center; flex-direction: column; background-color: rgb(36, 36, 43);");
 
 container.setAttribute("style",
-  "display: flex; align-items: center; justify-content: center; width: 400px; height: 400px; flex-wrap: wrap; overflow: hidden;");
+  "display: flex; align-items: center; justify-content: center; width: 400px; height: 400px; flex-wrap: wrap;");
 
 for (let i = 0; i <= 255; i++) {
   const squareDiv = document.createElement("div");
@@ -23,11 +23,18 @@ for (let i = 0; i <= 255; i++) {
   });
 
   squareDiv.addEventListener("mouseleave", (event) => {
-    event.target.style.backgroundColor = "rgb(197, 197, 219)";
+    function randomColor() {
+      let red = Math.floor(Math.random() * 256);
+      let green = Math.floor(Math.random() * 256);
+      let blue = Math.floor(Math.random() * 256);
+      return `rgb(${red}, ${green}, ${blue})`;
+    };
+    event.target.style.backgroundColor = randomColor();
   });
 
+  let opacityValue = 1;
   squareDiv.addEventListener("mousedown", (event) => {
-    event.target.style.backgroundColor = "red";
+    event.target.style.opacity = opacityValue - 0.1;
   });
 };
 
@@ -46,9 +53,9 @@ button.addEventListener("click", () => {
     body.insertBefore(containerNew, jsScript);
 
     containerNew.setAttribute("style",
-      "display: flex; align-items: center; justify-content: center; width: 400px; height: 400px; flex-wrap: wrap; overflow: hidden;");
+      "display: flex; align-items: center; justify-content: center; width: 400px; height: 400px; flex-wrap: wrap;");
 
-    for (let i = 0; i <= (numOfSquares * numOfSquares); i++) {
+    for (let i = 0; i <= (numOfSquares * numOfSquares) - 1; i++) {
 
       const squareDivNew = document.createElement("div");
       containerNew.appendChild(squareDivNew);
@@ -62,11 +69,18 @@ button.addEventListener("click", () => {
       });
 
       squareDivNew.addEventListener("mouseleave", (event) => {
-        event.target.style.backgroundColor = "rgb(197, 197, 219)";
+        function randomColor() {
+          let red = Math.floor(Math.random() * 256);
+          let green = Math.floor(Math.random() * 256);
+          let blue = Math.floor(Math.random() * 256);
+          return `rgb(${red}, ${green}, ${blue})`;
+        };
+        event.target.style.backgroundColor = randomColor();
       });
 
+      let opacityValue = 1;
       squareDivNew.addEventListener("mousedown", (event) => {
-        event.target.style.backgroundColor = "blue";
+        event.target.style.opacity = opacityValue - 0.1;
       });
     };
   } else {
